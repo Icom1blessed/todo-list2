@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+</head>
+<body>
+    <h1>To-Do App</h1>
+    
+    <div id="auth-buttons">
+        <!-- Login Form -->
+        <form id="login-form" style="display: none;">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Logout Button -->
+        <button id="logout-button" style="display: none;">Logout</button>
+    </div>
+
+    <!-- To-Do Form for Creating New To-Dos -->
+    <form id="todo-form" style="display: none;">
+        <input type="text" name="title" placeholder="Enter a new to-do" required>
+        <button type="submit">Add To-Do</button>
+    </form>
+
+    <!-- To-Do Container -->
+    <div id="todo-container"></div>
+
+    <!-- Include your auth.js or app.js -->
+    <script src="auth.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            
+            if (token) {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('logout-button').style.display = 'block';
+                document.getElementById('todo-form').style.display = 'block';
+            } else {
+                document.getElementById('login-form').style.display = 'block';
+                document.getElementById('logout-button').style.display = 'none';
+                document.getElementById('todo-form').style.display = 'none';
+            }
+        });
+
+
+        document.getElementById('addTodo').addEventListener('click', () => {
+    alert('Add To-Do button clicked');
+});
+
+document.getElementById('viewTodos').addEventListener('click', () => {
+    alert('View To-Dos button clicked');
+});
+
+    </script>
+</body>
+</html>
